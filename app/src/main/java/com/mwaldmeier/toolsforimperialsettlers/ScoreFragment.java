@@ -17,7 +17,7 @@ public class ScoreFragment extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_goods, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_score, container, false);
         return rootView;
     }
 }
