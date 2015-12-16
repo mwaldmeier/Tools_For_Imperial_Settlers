@@ -6,9 +6,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,25 +21,27 @@
 
 
             <TextView
-                android:id="@+id/playerTextLbl"
+                android:id="@+id/playerTextLbl1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Player"
+                android:text="@string/playerTitle"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
-                android:id="@+id/playerIDLbl"
+                android:id="@+id/playerIDLbl1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/playerTextLbl"
                 android:layout_alignParentTop="true"
                 android:text="1"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_toEndOf="@id/playerTextLbl1"
+                android:layout_alignParentEnd="true"
+                android:paddingStart="5dp" />
 
             <TextView
-                android:id="@+id/playerScore"
+                android:id="@+id/playerScore1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -47,21 +50,21 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:id="@+id/addOneScoreBtn"
+                android:id="@+id/addOneScoreBtn1"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/playerIDLbl"
+                android:layout_below="@+id/playerIDLbl1"
                 android:layout_centerHorizontal="true"
                 android:text="+" />
 
             <Button
-                android:id="@+id/minusOneScoreBtn"
+                android:id="@+id/minusOneScoreBtn1"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/addOneScoreBtn"
-                android:layout_toEndOf="@id/addOneScoreBtn"
+                android:layout_alignTop="@id/addOneScoreBtn1"
+                android:layout_toEndOf="@id/addOneScoreBtn1"
                 android:text="-" />
         </RelativeLayout>
 
@@ -79,17 +82,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Player"
+                android:text="@string/playerTitle"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/playerIDLbl2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/playerTextLbl2"
                 android:layout_alignParentTop="true"
                 android:text="2"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_toEndOf="@id/playerTextLbl2"
+                android:paddingStart="5dp" />
 
             <TextView
                 android:id="@+id/playerScore2"
@@ -134,17 +138,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Player"
+                android:text="@string/playerTitle"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/playerIDLbl3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/playerTextLbl3"
                 android:layout_alignParentTop="true"
                 android:text="3"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_toEndOf="@id/playerTextLbl3"
+                android:paddingStart="5dp" />
 
             <TextView
                 android:id="@+id/playerScore3"
@@ -189,17 +194,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:text="Player"
+                android:text="@string/playerTitle"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
                 android:id="@+id/playerIDLbl4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/playerTextLbl4"
                 android:layout_alignParentTop="true"
                 android:text="4"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_toEndOf="@id/playerTextLbl4"
+                android:paddingStart="5dp" />
 
             <TextView
                 android:id="@+id/playerScore4"
@@ -229,7 +235,7 @@
                 android:text="-" />
 
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
     </ScrollView>
 
 </FrameLayout>

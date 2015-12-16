@@ -5,10 +5,61 @@
     tools:context=".GoodsFragment">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="TEST"
-        android:id="@+id/textView2" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/playerGoodsBox1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#000000">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playerGoodsBox2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="#000000">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playerGoodsBox3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/playerGoodsBox1"
+            android:layout_above="@id/playerGoodsBox2"
+            android:background="#000000">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playerGoodsBox4"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/playerGoodsBox1"
+            android:layout_above="@id/playerGoodsBox2"
+            android:background="#000000">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000"
+            android:layout_below="@id/playerGoodsBox1"
+            android:layout_above="@id/playerGoodsBox2"
+            android:layout_toEndOf="@id/playerGoodsBox3"
+            android:layout_toStartOf="@id/playerGoodsBox4">
+
+        </RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>

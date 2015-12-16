@@ -8,17 +8,34 @@ import java.util.List;
 /**
  * Created by michael on 12/13/2015.
  */
-public class Game extends Application{
+public class ImpSettlers extends Application{
     private Integer NumPlayers;
-    private final List<Player> players = new ArrayList<>();
+    private List<Player> Players = new ArrayList<>();
 
     public void setUpNewGame(Integer numPlayers) {
         this.NumPlayers = numPlayers;
+        Players.clear();
         Integer i = 1;
         while (i <= this.NumPlayers) {
-            players.add(new Player(i));
+            Players.add(new Player(i));
             i += 1;
         }
+    }
+
+    public void addOneToScoreFor(Integer playerNum) {
+        Players.get((playerNum - 1)).addOneToScore();
+    }
+
+    public boolean removeOneFromScoreFor(Integer playerNum) {
+        return Players.get((playerNum -1)).removeOneFromScore();
+    }
+
+    public Integer getPlayerScoreFor(Integer playerNum) {
+        return Players.get((playerNum - 1)).getScore();
+    }
+
+    public Integer getNumPlayers() {
+        return NumPlayers;
     }
 
     private class Player {
@@ -48,7 +65,7 @@ public class Game extends Application{
         }
 
         public boolean removeOneFromScore() {
-            if (this.Score < 1) {
+            if (this.Score > 0) {
                 this.Score -= 1;
                 return true;
             } else {

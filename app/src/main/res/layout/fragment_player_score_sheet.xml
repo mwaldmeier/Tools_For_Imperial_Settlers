@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Player"
-            android:id="@+id/playerTextLbl"
+            android:id="@+id/playerTextLbl1"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
 
@@ -27,16 +27,16 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="#"
-            android:id="@+id/playerIDLbl"
+            android:id="@+id/playerIDLbl1"
             android:layout_alignParentTop="true"
-            android:layout_alignEnd="@id/playerTextLbl" />
+            android:layout_alignEnd="@id/playerTextLbl1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="##"
-            android:id="@+id/playerScore"
+            android:id="@+id/playerScore1"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true" />
 
@@ -45,8 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
-            android:id="@+id/addOneScoreBtn"
-            android:layout_below="@+id/playerIDLbl"
+            android:id="@+id/addOneScoreBtn1"
+            android:layout_below="@+id/playerIDLbl1"
             android:layout_centerHorizontal="true" />
 
         <Button
@@ -54,9 +54,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
-            android:id="@+id/minusOneScoreBtn"
-            android:layout_toEndOf="@id/addOneScoreBtn"
-            android:layout_alignTop="@id/addOneScoreBtn"/>
+            android:id="@+id/minusOneScoreBtn1"
+            android:layout_toEndOf="@id/addOneScoreBtn1"
+            android:layout_alignTop="@id/addOneScoreBtn1"/>
 
     </RelativeLayout>
 </FrameLayout>

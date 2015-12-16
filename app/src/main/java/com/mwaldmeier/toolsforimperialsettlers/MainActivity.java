@@ -1,7 +1,9 @@
 package com.mwaldmeier.toolsforimperialsettlers;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,13 +17,15 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Game thisGame;
+    ImpSettlers ThisGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ((Game) this.getApplication()).setUpNewGame(4);
+        ThisGame = ((ImpSettlers) this.getApplication());
+
+        ThisGame.setUpNewGame(4);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -36,7 +40,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
-        selectItem(new ScoreFragment());
+
+        setActiveFragment(new ScoreFragment());
     }
 
     @Override
@@ -64,12 +69,32 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-
+        if (id == R.id.action_newGame) {
+            sendNewGameAlert();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void sendNewGameAlert() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert
+                .setTitle("Number of Players?")
+                .setItems(R.array.playerNumbers, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        ThisGame.setUpNewGame((which+2));
+                        setActiveFragment(new ScoreFragment());
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+
+        alert.show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -88,8 +113,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new AboutFragment();
         }
 
-        if (fragment!= null) {
-            selectItem(fragment);
+        if (fragment != null) {
+            setActiveFragment(fragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -97,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void selectItem(Fragment fragment) {
+    private void setActiveFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
