@@ -1,16 +1,18 @@
 package com.mwaldmeier.toolsforimperialsettlers;
 
+import android.app.Application;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by michael on 12/13/2015.
  */
-public class Game {
-    private final Integer NumPlayers;
+public class Game extends Application{
+    private Integer NumPlayers;
     private final List<Player> players = new ArrayList<>();
 
-    public Game(Integer numPlayers) {
+    public void setUpNewGame(Integer numPlayers) {
         this.NumPlayers = numPlayers;
         Integer i = 1;
         while (i <= this.NumPlayers) {
@@ -22,6 +24,7 @@ public class Game {
     private class Player {
         private final Integer ID;
         private List<Good> goods = new ArrayList<>();
+        private Integer Score;
 
         public Player(Integer id) {
             this.ID = id;
@@ -29,10 +32,28 @@ public class Game {
                  GoodType.values()) {
                 goods.add(new Good(goodType));
             }
+            this.Score = 0;
         }
 
         public Integer getID() {
             return ID;
+        }
+
+        public Integer getScore() {
+            return Score;
+        }
+
+        public void addOneToScore() {
+                this.Score += 1;
+        }
+
+        public boolean removeOneFromScore() {
+            if (this.Score < 1) {
+                this.Score -= 1;
+                return true;
+            } else {
+                return false;
+            }
         }
 
         private class Good {

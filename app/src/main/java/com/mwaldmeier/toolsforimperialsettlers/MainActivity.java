@@ -21,10 +21,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (thisGame == null) {
-            //TODO: add new game setup
-            thisGame = new Game(4);
-        }
+        ((Game) this.getApplication()).setUpNewGame(4);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

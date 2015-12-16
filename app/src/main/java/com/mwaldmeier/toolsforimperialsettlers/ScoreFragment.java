@@ -18,6 +18,8 @@ public class ScoreFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_score, container, false);
+        PlayerScoreSheetFragment sheet1 = new PlayerScoreSheetFragment();
+
         return rootView;
     }
 }
