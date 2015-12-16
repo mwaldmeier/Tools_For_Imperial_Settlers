@@ -7,6 +7,11 @@
     android:fitsSystemWindows="true"
     tools:context="com.mwaldmeier.toolsforimperialsettlers.MainActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,9 +26,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
+
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
