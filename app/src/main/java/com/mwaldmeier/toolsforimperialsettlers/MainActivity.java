@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        setActiveFragment(new ScoreFragment());
+        //TODO: Reset for prod
+        //setActiveFragment(new ScoreFragment());
+        setActiveFragment(new GoodsFragment());
     }
 
     @Override

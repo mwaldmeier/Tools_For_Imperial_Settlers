@@ -11,54 +11,880 @@
 
         <RelativeLayout
             android:id="@+id/playerGoodsBox1"
+            style="@style/playerGoodHolderStyle"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:background="#000000">
+            android:background="@drawable/player_goods_holder_shape">
+
+            <TextView
+                android:id="@+id/playerTextLbl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/playerTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/playerIDLbl1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/playerTextLbl1"
+                android:paddingStart="5dp"
+                android:text="1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RelativeLayout
+                android:id="@+id/goodsHolder1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerTextLbl1">
+
+                <RelativeLayout
+                    android:id="@+id/stoneHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/stoneImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/stoneStyle" />
+
+                    <TextView
+                        android:id="@+id/stoneCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stoneImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/woodHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/stoneHolder1">
+
+
+                    <ImageView
+                        android:id="@+id/woodImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+
+                    <TextView
+                        android:id="@+id/woodCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/woodImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/foodHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/woodHolder1">
+
+                    <ImageView
+                        android:id="@+id/foodImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/foodStyle" />
+
+                    <TextView
+                        android:id="@+id/foodCount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodImg1"
+                    android:layout_centerInParent="true"
+                    android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workerHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/foodHolder1">
+
+                    <ImageView
+                        android:id="@+id/workerImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/workerStyle" />
+
+                    <TextView
+                        android:id="@+id/workerCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/workerImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/goldHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/workerHolder1">
+
+                    <ImageView
+                        android:id="@+id/goldImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/goldStyle" />
+
+                    <TextView
+                        android:id="@+id/goldCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/goldImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/razeHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/goldHolder1">
+
+                    <ImageView
+                        android:id="@+id/razeImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+                    <TextView
+                        android:id="@+id/razeCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/razeImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/defenceHolder1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/razeHolder1">
+
+                    <ImageView
+                        android:id="@+id/defenceImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/defenceStyle"/>
+
+                    <TextView
+                        android:id="@+id/defenceCount1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/defenceImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/playerGoodsBox2"
+            style="@style/playerGoodHolderStyle"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="#000000">
+            android:background="@drawable/player_goods_holder_shape">
+
+            <TextView
+                android:id="@+id/playerTextLbl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/playerTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/playerIDLbl2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/playerTextLbl2"
+                android:paddingStart="5dp"
+                android:text="2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RelativeLayout
+                android:id="@+id/goodsHolder2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerTextLbl2">
+
+                <RelativeLayout
+                    android:id="@+id/stoneHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/stoneImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/stoneStyle" />
+
+                    <TextView
+                        android:id="@+id/stoneCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stoneImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/woodHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/stoneHolder2">
+
+
+                    <ImageView
+                        android:id="@+id/woodImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+
+                    <TextView
+                        android:id="@+id/woodCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/woodImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/foodHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/woodHolder2">
+
+                    <ImageView
+                        android:id="@+id/foodImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/foodStyle" />
+
+                    <TextView
+                        android:id="@+id/foodCount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodImg2"
+                    android:layout_centerInParent="true"
+                    android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workerHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/foodHolder2">
+
+                    <ImageView
+                        android:id="@+id/workerImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/workerStyle" />
+
+                    <TextView
+                        android:id="@+id/workerCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/workerImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/goldHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/workerHolder2">
+
+                    <ImageView
+                        android:id="@+id/goldImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/goldStyle" />
+
+                    <TextView
+                        android:id="@+id/goldCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/goldImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/razeHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/goldHolder2">
+
+                    <ImageView
+                        android:id="@+id/razeImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+                    <TextView
+                        android:id="@+id/razeCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/razeImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/defenceHolder2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/razeHolder2">
+
+                    <ImageView
+                        android:id="@+id/defenceImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/defenceStyle"/>
+
+                    <TextView
+                        android:id="@+id/defenceCount2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/defenceImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/playerGoodsBox3"
+            style="@style/playerGoodHolderStyle"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_above="@id/playerGoodsBox2"
             android:layout_alignParentStart="true"
             android:layout_below="@id/playerGoodsBox1"
-            android:layout_above="@id/playerGoodsBox2"
-            android:background="#000000">
+            android:background="@drawable/player_goods_holder_shape">
+
+            <TextView
+                android:id="@+id/playerTextLbl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/playerTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/playerIDLbl3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/playerTextLbl3"
+                android:paddingStart="5dp"
+                android:text="3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RelativeLayout
+                android:id="@+id/goodsHolder3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerTextLbl3"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout
+                    android:id="@+id/stoneHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/stoneImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/stoneStyle" />
+
+                    <TextView
+                        android:id="@+id/stoneCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stoneImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/woodHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stoneHolder3">
+
+
+                    <ImageView
+                        android:id="@+id/woodImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+
+                    <TextView
+                        android:id="@+id/woodCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/woodImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/foodHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/woodHolder3">
+
+                    <ImageView
+                        android:id="@+id/foodImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/foodStyle" />
+
+                    <TextView
+                        android:id="@+id/foodCount3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodImg3"
+                    android:layout_centerInParent="true"
+                    android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workerHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodHolder3">
+
+                    <ImageView
+                        android:id="@+id/workerImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/workerStyle" />
+
+                    <TextView
+                        android:id="@+id/workerCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/workerImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/goldHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/workerHolder3">
+
+                    <ImageView
+                        android:id="@+id/goldImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/goldStyle" />
+
+                    <TextView
+                        android:id="@+id/goldCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/goldImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/razeHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/goldHolder3">
+
+                    <ImageView
+                        android:id="@+id/razeImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+                    <TextView
+                        android:id="@+id/razeCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/razeImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/defenceHolder3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/razeHolder3">
+
+                    <ImageView
+                        android:id="@+id/defenceImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/defenceStyle"/>
+
+                    <TextView
+                        android:id="@+id/defenceCount3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/defenceImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/playerGoodsBox4"
+            style="@style/playerGoodHolderStyle"
             android:layout_width="100dp"
             android:layout_height="match_parent"
+            android:layout_above="@id/playerGoodsBox2"
             android:layout_alignParentEnd="true"
             android:layout_below="@id/playerGoodsBox1"
-            android:layout_above="@id/playerGoodsBox2"
-            android:background="#000000">
+            android:background="@drawable/player_goods_holder_shape">
+
+            <TextView
+                android:id="@+id/playerTextLbl4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/playerTitle"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/playerIDLbl4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@id/playerTextLbl4"
+                android:paddingStart="5dp"
+                android:text="4"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <RelativeLayout
+                android:id="@+id/goodsHolder4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playerTextLbl4"
+                android:layout_centerHorizontal="true">
+
+                <RelativeLayout
+                    android:id="@+id/stoneHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/stoneImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/stoneStyle" />
+
+                    <TextView
+                        android:id="@+id/stoneCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/stoneImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/woodHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/stoneHolder4">
+
+
+                    <ImageView
+                        android:id="@+id/woodImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+
+                    <TextView
+                        android:id="@+id/woodCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/woodImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/foodHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/woodHolder4">
+
+                    <ImageView
+                        android:id="@+id/foodImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/foodStyle" />
+
+                    <TextView
+                        android:id="@+id/foodCount4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodImg4"
+                    android:layout_centerInParent="true"
+                    android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/workerHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/foodHolder4">
+
+                    <ImageView
+                        android:id="@+id/workerImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/workerStyle" />
+
+                    <TextView
+                        android:id="@+id/workerCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/workerImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/goldHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/workerHolder4">
+
+                    <ImageView
+                        android:id="@+id/goldImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/goldStyle" />
+
+                    <TextView
+                        android:id="@+id/goldCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/goldImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/razeHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/goldHolder4">
+
+                    <ImageView
+                        android:id="@+id/razeImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/razeStyle" />
+
+                    <TextView
+                        android:id="@+id/razeCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/razeImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/defenceHolder4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/razeHolder4">
+
+                    <ImageView
+                        android:id="@+id/defenceImg4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        style="@style/defenceStyle"/>
+
+                    <TextView
+                        android:id="@+id/defenceCount4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/defenceImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/goodsPoolBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ff0000"
-            android:layout_below="@id/playerGoodsBox1"
             android:layout_above="@id/playerGoodsBox2"
+            android:layout_below="@id/playerGoodsBox1"
             android:layout_toEndOf="@id/playerGoodsBox3"
-            android:layout_toStartOf="@id/playerGoodsBox4">
+            android:layout_toStartOf="@id/playerGoodsBox4"
+            android:gravity="center"
+            android:padding="5dp"
+            android:background="@drawable/player_goods_holder_shape">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/stoneImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/stoneStyle"/>
+
+                <ImageView
+                    android:id="@+id/woodImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/stoneImg"
+                    style="@style/woodStyle" />
+
+                <ImageView
+                    android:id="@+id/foodImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/stoneImg"
+                    android:layout_below="@+id/stoneImg"
+                    style="@style/foodStyle" />
+
+                <ImageView
+                    android:id="@+id/workerImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/woodImg"
+                    android:layout_toEndOf="@+id/foodImg"
+                    style="@style/workerStyle" />
+
+                <ImageView
+                    android:id="@+id/goldImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/foodImg"
+                    android:layout_below="@+id/foodImg"
+                    style="@style/goldStyle" />
+
+                <ImageView
+                    android:id="@+id/defenceImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workerImg"
+                    android:layout_toEndOf="@+id/goldImg"
+                    style="@style/defenceStyle" />
+
+                <ImageView
+                    android:id="@+id/razeImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/defenceImg"
+                    android:layout_centerHorizontal="true"
+                    style="@style/razeStyle" />
+            </RelativeLayout>
+
 
         </RelativeLayout>
     </RelativeLayout>

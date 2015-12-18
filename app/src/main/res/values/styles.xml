@@ -17,4 +17,37 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="playerGoodHolderStyle">
+        <item name="android:padding">5sp</item>
+    </style>
+
+    <style name="stoneStyle">
+        <item name="android:src">@mipmap/ic_stone</item>
+        <item name="android:tag">stoneImg</item>
+    </style>
+    <style name="woodStyle">
+        <item name="android:src">@mipmap/ic_wood</item>
+        <item name="android:tag">woodImg</item>
+    </style>
+    <style name="foodStyle">
+        <item name="android:src">@mipmap/ic_food</item>
+        <item name="android:tag">foodImg</item>
+    </style>
+    <style name="workerStyle">
+        <item name="android:src">@mipmap/ic_worker</item>
+        <item name="android:tag">workerImg</item>
+    </style>
+    <style name="goldStyle">
+        <item name="android:src">@mipmap/ic_gold</item>
+        <item name="android:tag">goldImg</item>
+    </style>
+    <style name="defenceStyle">
+        <item name="android:src">@mipmap/ic_defence</item>
+        <item name="android:tag">defenceImg</item>
+    </style>
+    <style name="razeStyle">
+        <item name="android:src">@mipmap/ic_raze</item>
+        <item name="android:tag">razeImg</item>
+    </style>
+
 </resources>

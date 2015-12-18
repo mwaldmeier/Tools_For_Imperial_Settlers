@@ -1,6 +1,7 @@
 package com.mwaldmeier.toolsforimperialsettlers;
 
 import android.app.Application;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,8 @@ public class ImpSettlers extends Application{
         }
     }
 
+
+
     public void addOneToScoreFor(Integer playerNum) {
         Players.get((playerNum - 1)).addOneToScore();
     }
@@ -38,10 +41,23 @@ public class ImpSettlers extends Application{
         return NumPlayers;
     }
 
+    public void addOneGoodToPlayer(Integer playerNum, GoodType goodType) {
+        Players.get((playerNum - 1)).addOneToGood(goodType);
+    }
+
+    public boolean removeOneGoodFromPlayer(Integer playerNum, GoodType goodType) {
+        return Players.get((playerNum - 1)).removeOneFromGood(goodType);
+    }
+
+    public Integer getGoodCountForPlayer(Integer playerNum, GoodType goodType) {
+        return Players.get((playerNum-1)).getGoodCount(goodType);
+    }
+
     private class Player {
         private final Integer ID;
         private List<Good> goods = new ArrayList<>();
         private Integer Score;
+        private View goodsView;
 
         public Player(Integer id) {
             this.ID = id;
@@ -50,6 +66,7 @@ public class ImpSettlers extends Application{
                 goods.add(new Good(goodType));
             }
             this.Score = 0;
+            this.goodsView = null;
         }
 
         public Integer getID() {
@@ -73,12 +90,47 @@ public class ImpSettlers extends Application{
             }
         }
 
+        public void addOneToGood(GoodType goodType) {
+            for (Good good :
+                    goods) {
+                if (good.getType() == goodType) {
+                    good.addOne();
+                }
+            }
+        }
+
+        public boolean removeOneFromGood(GoodType goodType) {
+            boolean didRemove = false;
+            for (Good good :
+                    goods) {
+                if (good.getType() == goodType) {
+                    didRemove = good.removeOne();
+                }
+            }
+            return didRemove;
+        }
+
+        public Integer getGoodCount(GoodType goodType) {
+            Integer count = null;
+            for (Good good :
+                    goods) {
+                if (good.getType() == goodType) {
+                    count = good.getCount();
+                    break;
+                }
+            }
+            return count;
+        }
+
         private class Good {
             private final GoodType Type;
             private Integer Count;
+            private View goodImgView;
+
             public Good(GoodType type) {
                 this.Type = type;
                 this.Count = 0;
+                this.goodImgView = null;
             }
 
             public GoodType getType() {
