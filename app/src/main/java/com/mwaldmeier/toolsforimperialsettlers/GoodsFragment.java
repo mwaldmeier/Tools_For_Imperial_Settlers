@@ -2,12 +2,14 @@ package com.mwaldmeier.toolsforimperialsettlers;
 
 import android.content.ClipData;
 import android.graphics.drawable.Drawable;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +21,8 @@ public class GoodsFragment extends android.app.Fragment {
     ImpSettlers ThisGame;
     List<View> PlayerViews = new ArrayList<>();
     List<List> PlayerImgViewLists = new ArrayList<>();
+    SoundPool sp;
+    int soundID;
 
     public GoodsFragment() {
         // Empty constructor required for fragment subclasses
@@ -30,6 +34,21 @@ public class GoodsFragment extends android.app.Fragment {
         View rootView = inflater.inflate(R.layout.fragment_goods, container, false);
 
         ThisGame = ((ImpSettlers) getActivity().getApplication());
+
+        //set up drop sound
+        sp = ((MainActivity) getActivity()).getSoundPool();
+        soundID = sp.load(getActivity().getApplicationContext(), R.raw.blop, 1);
+
+        ((ImageButton) rootView.findViewById(R.id.backBtn)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.goToPage(1);
+            }
+        });
+
+        rootView.findViewById(R.id.playerGoodsBox3).setVisibility(View.GONE);
+        rootView.findViewById(R.id.playerGoodsBox4).setVisibility(View.GONE);
 
         //set up middle pool
         rootView.findViewById(R.id.foodImg).setOnTouchListener(new MyTouchListener());
@@ -44,13 +63,21 @@ public class GoodsFragment extends android.app.Fragment {
         //set up player goods
         PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox1));
         PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox2));
-        PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox3));
-        PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox4));
 
         PlayerViews.get(0).setOnDragListener(new MyDragListenerForGoodsPool());
         PlayerViews.get(1).setOnDragListener(new MyDragListenerForGoodsPool());
-        PlayerViews.get(2).setOnDragListener(new MyDragListenerForGoodsPool());
-        PlayerViews.get(3).setOnDragListener(new MyDragListenerForGoodsPool());
+
+        if (ThisGame.getNumPlayers() > 2) {
+            PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox3));
+            PlayerViews.get(2).setVisibility(View.VISIBLE);
+            PlayerViews.get(2).setOnDragListener(new MyDragListenerForGoodsPool());
+
+            if (ThisGame.getNumPlayers() == 4) {
+                PlayerViews.add(rootView.findViewById(R.id.playerGoodsBox4));
+                PlayerViews.get(3).setVisibility(View.VISIBLE);
+                PlayerViews.get(3).setOnDragListener(new MyDragListenerForGoodsPool());
+            }
+        }
 
         setListForImgs(rootView);
         setGoodCountsForAllPlayers();
@@ -77,28 +104,32 @@ public class GoodsFragment extends android.app.Fragment {
         player2Imgs.add(rootView.findViewById(R.id.razeImg2));
         player2Imgs.add(rootView.findViewById(R.id.defenceImg2));
 
-        List<View> player3Imgs = new ArrayList<>();
-        player3Imgs.add(rootView.findViewById(R.id.foodImg3));
-        player3Imgs.add(rootView.findViewById(R.id.stoneImg3));
-        player3Imgs.add(rootView.findViewById(R.id.woodImg3));
-        player3Imgs.add(rootView.findViewById(R.id.workerImg3));
-        player3Imgs.add(rootView.findViewById(R.id.goldImg3));
-        player3Imgs.add(rootView.findViewById(R.id.razeImg3));
-        player3Imgs.add(rootView.findViewById(R.id.defenceImg3));
-
-        List<View> player4Imgs = new ArrayList<>();
-        player4Imgs.add(rootView.findViewById(R.id.foodImg4));
-        player4Imgs.add(rootView.findViewById(R.id.stoneImg4));
-        player4Imgs.add(rootView.findViewById(R.id.woodImg4));
-        player4Imgs.add(rootView.findViewById(R.id.workerImg4));
-        player4Imgs.add(rootView.findViewById(R.id.goldImg4));
-        player4Imgs.add(rootView.findViewById(R.id.razeImg4));
-        player4Imgs.add(rootView.findViewById(R.id.defenceImg4));
-
         PlayerImgViewLists.add(player1Imgs);
         PlayerImgViewLists.add(player2Imgs);
-        PlayerImgViewLists.add(player3Imgs);
-        PlayerImgViewLists.add(player4Imgs);
+
+        if (ThisGame.getNumPlayers() > 2) {
+            List<View> player3Imgs = new ArrayList<>();
+            player3Imgs.add(rootView.findViewById(R.id.foodImg3));
+            player3Imgs.add(rootView.findViewById(R.id.stoneImg3));
+            player3Imgs.add(rootView.findViewById(R.id.woodImg3));
+            player3Imgs.add(rootView.findViewById(R.id.workerImg3));
+            player3Imgs.add(rootView.findViewById(R.id.goldImg3));
+            player3Imgs.add(rootView.findViewById(R.id.razeImg3));
+            player3Imgs.add(rootView.findViewById(R.id.defenceImg3));
+            PlayerImgViewLists.add(player3Imgs);
+
+            if (ThisGame.getNumPlayers() == 4) {
+                List<View> player4Imgs = new ArrayList<>();
+                player4Imgs.add(rootView.findViewById(R.id.foodImg4));
+                player4Imgs.add(rootView.findViewById(R.id.stoneImg4));
+                player4Imgs.add(rootView.findViewById(R.id.woodImg4));
+                player4Imgs.add(rootView.findViewById(R.id.workerImg4));
+                player4Imgs.add(rootView.findViewById(R.id.goldImg4));
+                player4Imgs.add(rootView.findViewById(R.id.razeImg4));
+                player4Imgs.add(rootView.findViewById(R.id.defenceImg4));
+                PlayerImgViewLists.add(player4Imgs);
+            }
+        }
 
         setListenersForImgs();
     }
@@ -253,7 +284,7 @@ public class GoodsFragment extends android.app.Fragment {
                             setGoodCountLblForPlayerView(oldPlayerNum);
                         }
                     }
-
+                    playDropSound();
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     v.setBackgroundDrawable(normalShape);
@@ -297,14 +328,22 @@ public class GoodsFragment extends android.app.Fragment {
 
                         ThisGame.removeOneGoodFromPlayer(playerNum, goodType);
                         setGoodCountLblForPlayerView(playerNum);
+                        playDropSound();
                     }
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     //v.setBackgroundDrawable(normalShape);
+
                 default:
                     break;
             }
             return true;
+        }
+    }
+
+    private void playDropSound() {
+        if (((MainActivity) getActivity()).getSoundOn().equals("1")) {
+            sp.play(soundID, 1, 1, 0, 0, 1);
         }
     }
 }

@@ -3,7 +3,11 @@ package com.mwaldmeier.toolsforimperialsettlers;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,11 +17,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ImpSettlers ThisGame;
+    SoundPool sp;
+    //settings variables
+    final String SOUND_ON = "SOUND_ON";
+    final String SCREEN_ALWAYS_ON = "SCREEN_ALWAYS_ON";
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +37,12 @@ public class MainActivity extends AppCompatActivity
         ThisGame = ((ImpSettlers) this.getApplication());
 
         ThisGame.setUpNewGame(4);
+
+        sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+
+        preferences = getSharedPreferences("ImpSettlersPrefs", Context.MODE_PRIVATE);
+        editor = preferences.edit();
+        setUpSettings();
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -41,9 +58,35 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        //TODO: Reset for prod
-        //setActiveFragment(new ScoreFragment());
-        setActiveFragment(new GoodsFragment());
+        setActiveFragment(new ScoreFragment());
+    }
+
+    private void setUpSettings() {
+        if (getSoundOn() == null) {
+            setSetting(SOUND_ON, "1");
+        }
+        if (getScreenAlwaysOn() == null) {
+            setSetting(SCREEN_ALWAYS_ON, "1");
+        }
+    }
+
+    public String getScreenAlwaysOn() {
+        return preferences.getString(SCREEN_ALWAYS_ON, null);
+    }
+    public String getSoundOn() {
+        return preferences.getString(SOUND_ON, null);
+    }
+
+    private void setSetting(String setting, String value) {
+        editor.putString(setting, value);
+        editor.apply();
+        if (setting.equals(SCREEN_ALWAYS_ON)) {
+            setScreenSetting(value);
+        }
+    }
+
+    public SoundPool getSoundPool() {
+        return sp;
     }
 
     @Override
@@ -74,6 +117,8 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_newGame) {
             sendNewGameAlert();
             return true;
+        } else if (id == R.id.action_settings) {
+            changeSettingsAlert();
         }
 
         return super.onOptionsItemSelected(item);
@@ -96,6 +141,52 @@ public class MainActivity extends AppCompatActivity
                 });
 
 
+        alert.show();
+    }
+
+    private void changeSettingsAlert() {
+        boolean selected[] = new boolean[2];
+        if (getSoundOn().equals("1")) {
+            selected[0] = true;
+        } else {
+            selected[0] = false;
+        }
+        if (getScreenAlwaysOn().equals("1")) {
+            selected[1] = true;
+        } else {
+            selected[1] = false;
+        }
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert
+                .setTitle("Settings")
+                .setMultiChoiceItems(
+                        R.array.settings,
+                        selected,
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                String checkedSetting = null;
+                                switch (which) {
+                                    case 0:
+                                        checkedSetting = SOUND_ON;
+                                        break;
+                                    case 1:
+                                        checkedSetting = SCREEN_ALWAYS_ON;
+                                        break;
+                                }
+
+                                if (isChecked) {
+                                    setSetting(checkedSetting, "1");
+                                } else {
+                                    setSetting(checkedSetting, "0");
+                                }
+                            }
+                        })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
         alert.show();
     }
 
@@ -129,5 +220,29 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
+    }
+
+    public void goToPage(int pageNum) {
+        Fragment fragment = null;
+
+        if (pageNum == 1) {
+            fragment = new ScoreFragment();
+        } else if (pageNum == 2) {
+            fragment = new GoodsFragment();
+        } else if (pageNum == 3) {
+            fragment = new AboutFragment();
+        }
+
+        if (fragment != null) {
+            setActiveFragment(fragment);
+        }
+    }
+
+    private void setScreenSetting(String screenSetting) {
+        if (screenSetting.equals("1")) {
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        } else {
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 }

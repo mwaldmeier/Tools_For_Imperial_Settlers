@@ -50,4 +50,24 @@
         <item name="android:tag">razeImg</item>
     </style>
 
+    <style name="playerScoreBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80sp</item>
+        <item name="android:paddingTop">15sp</item>
+        <item name="android:paddingEnd">5sp</item>
+        <item name="android:paddingStart">5sp</item>
+        <item name="android:paddingBottom">10sp</item>
+    </style>
+    <style name="plusBtnStyle">
+        <item name="android:layout_width">50sp</item>
+        <item name="android:layout_height">50sp</item>
+        <item name="android:text">+</item>
+    </style>
+
+    <style name="minusBtnStyle">
+        <item name="android:layout_width">50sp</item>
+        <item name="android:layout_height">50sp</item>
+        <item name="android:text">-</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
 </resources>

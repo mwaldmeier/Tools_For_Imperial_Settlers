@@ -42,7 +42,8 @@
                 android:id="@+id/goodsHolder1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/playerTextLbl1">
+                android:layout_below="@id/playerTextLbl1"
+                android:layout_centerInParent="true">
 
                 <RelativeLayout
                     android:id="@+id/stoneHolder1"
@@ -77,7 +78,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        style="@style/woodStyle" />
 
 
                     <TextView
@@ -242,7 +243,8 @@
                 android:id="@+id/goodsHolder2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/playerTextLbl2">
+                android:layout_below="@id/playerTextLbl2"
+                android:layout_centerInParent="true">
 
                 <RelativeLayout
                     android:id="@+id/stoneHolder2"
@@ -277,7 +279,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        style="@style/woodStyle" />
 
 
                     <TextView
@@ -412,7 +414,7 @@
         <RelativeLayout
             android:id="@+id/playerGoodsBox3"
             style="@style/playerGoodHolderStyle"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_above="@id/playerGoodsBox2"
             android:layout_alignParentStart="true"
@@ -471,7 +473,7 @@
                     android:id="@+id/woodHolder3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/stoneHolder3">
+                    android:layout_toEndOf="@id/stoneHolder3">
 
 
                     <ImageView
@@ -479,7 +481,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        style="@style/woodStyle" />
 
 
                     <TextView
@@ -519,7 +521,8 @@
                     android:id="@+id/workerHolder3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/foodHolder3">
+                    android:layout_below="@id/woodHolder3"
+                    android:layout_toEndOf="@id/foodHolder3">
 
                     <ImageView
                         android:id="@+id/workerImg3"
@@ -565,7 +568,8 @@
                     android:id="@+id/razeHolder3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/goldHolder3">
+                    android:layout_below="@id/workerHolder3"
+                    android:layout_toEndOf="@id/goldHolder3">
 
                     <ImageView
                         android:id="@+id/razeImg3"
@@ -588,7 +592,8 @@
                     android:id="@+id/defenceHolder3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/razeHolder3">
+                    android:layout_below="@id/razeHolder3"
+                    android:layout_centerInParent="true">
 
                     <ImageView
                         android:id="@+id/defenceImg3"
@@ -615,7 +620,7 @@
         <RelativeLayout
             android:id="@+id/playerGoodsBox4"
             style="@style/playerGoodHolderStyle"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="match_parent"
             android:layout_above="@id/playerGoodsBox2"
             android:layout_alignParentEnd="true"
@@ -674,7 +679,7 @@
                     android:id="@+id/woodHolder4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/stoneHolder4">
+                    android:layout_toEndOf="@id/stoneHolder4">
 
 
                     <ImageView
@@ -682,7 +687,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        style="@style/woodStyle" />
 
 
                     <TextView
@@ -722,7 +727,8 @@
                     android:id="@+id/workerHolder4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/foodHolder4">
+                    android:layout_toEndOf="@id/foodHolder4"
+                    android:layout_below="@id/woodHolder4">
 
                     <ImageView
                         android:id="@+id/workerImg4"
@@ -768,7 +774,8 @@
                     android:id="@+id/razeHolder4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/goldHolder4">
+                    android:layout_below="@id/workerHolder4"
+                    android:layout_toEndOf="@id/goldHolder4">
 
                     <ImageView
                         android:id="@+id/razeImg4"
@@ -791,7 +798,8 @@
                     android:id="@+id/defenceHolder4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/razeHolder4">
+                    android:layout_below="@id/razeHolder4"
+                    android:layout_centerInParent="true">
 
                     <ImageView
                         android:id="@+id/defenceImg4"
@@ -822,14 +830,36 @@
             android:layout_below="@id/playerGoodsBox1"
             android:layout_toEndOf="@id/playerGoodsBox3"
             android:layout_toStartOf="@id/playerGoodsBox4"
-            android:gravity="center"
             android:padding="5dp"
             android:background="@drawable/player_goods_holder_shape">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Goods Pool"
+                android:id="@+id/textView2"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+
+
+            <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu_send"
+                android:id="@+id/backBtn"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:rotation="180"/>
+
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:layout_centerInParent="true">
 
                 <ImageView
                     android:id="@+id/stoneImg"
@@ -884,7 +914,6 @@
                     android:layout_centerHorizontal="true"
                     style="@style/razeStyle" />
             </RelativeLayout>
-
 
         </RelativeLayout>
     </RelativeLayout>

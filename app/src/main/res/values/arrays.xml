@@ -5,4 +5,8 @@
     <item>"3"</item>
     <item>"4"</item>
 </array>
+<array name="settings">
+    <item>"Sound On"</item>
+    <item>"Keep Screen On"</item>
+</array>
 </resources>

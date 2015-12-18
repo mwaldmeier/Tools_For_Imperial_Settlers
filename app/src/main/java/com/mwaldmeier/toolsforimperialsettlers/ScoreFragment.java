@@ -1,10 +1,12 @@
 package com.mwaldmeier.toolsforimperialsettlers;
 
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,6 +20,8 @@ public class ScoreFragment extends android.app.Fragment {
 
     List<TextView> playerScoreLbls = new ArrayList<>();
     ImpSettlers ThisGame;
+    SoundPool sp;
+    int soundID;
 
     public ScoreFragment() {
         // Empty constructor required for fragment subclasses
@@ -28,6 +32,18 @@ public class ScoreFragment extends android.app.Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_score, container, false);
         ThisGame = ((ImpSettlers) getActivity().getApplication());
+
+        //set up drop sound
+        sp = ((MainActivity) getActivity()).getSoundPool();
+        soundID = sp.load(getActivity().getApplicationContext(), R.raw.blop, 1);
+
+        ((ImageButton) rootView.findViewById(R.id.backBtn)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity activity = (MainActivity) getActivity();
+                activity.goToPage(2);
+            }
+        });
 
         //Hide player 3 & 4
         ((RelativeLayout) rootView.findViewById(R.id.playerScoreSheetFragmentLayout3)).setVisibility(View.GONE);
@@ -86,7 +102,9 @@ public class ScoreFragment extends android.app.Fragment {
             plusBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     ThisGame.addOneToScoreFor(finalI);
+                    playDropSound();
                     refreshScores();
+
                 }
             });
             i += 1;
@@ -99,12 +117,20 @@ public class ScoreFragment extends android.app.Fragment {
             minusBtn.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     if (ThisGame.removeOneFromScoreFor(finalI)) {
+                        playDropSound();
                         refreshScores();
+
                     }
                 }
             });
             i += 1;
         }
 
+    }
+
+    private void playDropSound() {
+        if (((MainActivity) getActivity()).getSoundOn().equals("1")) {
+            sp.play(soundID, 1, 1, 0, 0, 1);
+        }
     }
 }

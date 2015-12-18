@@ -11,13 +11,27 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_send"
+            android:id="@+id/backBtn"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="3dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
         <RelativeLayout
             android:id="@+id/playerScoreSheetFragmentLayout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp">
+            style="@style/playerScoreBox">
+
 
 
             <TextView
@@ -51,29 +65,23 @@
 
             <Button
                 android:id="@+id/addOneScoreBtn1"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerIDLbl1"
-                android:layout_centerHorizontal="true"
-                android:text="+" />
+                android:layout_alignTop="@id/minusOneScoreBtn1"
+                android:layout_toEndOf="@id/minusOneScoreBtn1"
+                style="@style/plusBtnStyle" />
 
             <Button
                 android:id="@+id/minusOneScoreBtn1"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/addOneScoreBtn1"
-                android:layout_toEndOf="@id/addOneScoreBtn1"
-                android:text="-" />
+                style="@style/minusBtnStyle"/>
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
         <RelativeLayout
             android:id="@+id/playerScoreSheetFragmentLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/playerScoreSheetFragmentLayout">
+            style="@style/playerScoreBox">
 
 
             <TextView
@@ -105,31 +113,24 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:id="@+id/addOneScoreBtn2"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerIDLbl2"
-                android:layout_centerHorizontal="true"
-                android:text="+" />
-
-            <Button
                 android:id="@+id/minusOneScoreBtn2"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/addOneScoreBtn2"
-                android:layout_toEndOf="@id/addOneScoreBtn2"
-                android:text="-" />
+                style="@style/minusBtnStyle" />
+            <Button
+                android:id="@+id/addOneScoreBtn2"
+                android:layout_alignTop="@id/minusOneScoreBtn2"
+                android:layout_toEndOf="@id/minusOneScoreBtn2"
+                style="@style/plusBtnStyle"/>
+
 
         </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
         <RelativeLayout
             android:id="@+id/playerScoreSheetFragmentLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/playerScoreSheetFragmentLayout2">
+            style="@style/playerScoreBox">
 
 
             <TextView
@@ -161,31 +162,25 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:id="@+id/addOneScoreBtn3"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerIDLbl3"
-                android:layout_centerHorizontal="true"
-                android:text="+" />
+                android:id="@+id/minusOneScoreBtn3"
+                style="@style/minusBtnStyle" />
 
             <Button
-                android:id="@+id/minusOneScoreBtn3"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/addOneScoreBtn3"
-                android:layout_toEndOf="@id/addOneScoreBtn3"
-                android:text="-" />
+                android:id="@+id/addOneScoreBtn3"
+                android:layout_alignTop="@id/minusOneScoreBtn3"
+                android:layout_toEndOf="@id/minusOneScoreBtn3"
+                style="@style/plusBtnStyle" />
 
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
         <RelativeLayout
             android:id="@+id/playerScoreSheetFragmentLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="5dp"
-            android:layout_below="@id/playerScoreSheetFragmentLayout3">
+            style="@style/playerScoreBox">
 
 
             <TextView
@@ -217,24 +212,21 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:id="@+id/addOneScoreBtn4"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/playerIDLbl4"
-                android:layout_centerHorizontal="true"
-                android:text="+" />
-
-            <Button
                 android:id="@+id/minusOneScoreBtn4"
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/addOneScoreBtn4"
-                android:layout_toEndOf="@id/addOneScoreBtn4"
-                android:text="-" />
+                style="@style/minusBtnStyle" />
+            <Button
+                android:id="@+id/addOneScoreBtn4"
+                style="@style/plusBtnStyle"
+                android:layout_alignTop="@id/minusOneScoreBtn4"
+                android:layout_toEndOf="@id/minusOneScoreBtn4" />
+
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
     </LinearLayout>
     </ScrollView>
 
