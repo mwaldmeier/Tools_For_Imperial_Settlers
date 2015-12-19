@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity
                 .setTitle("Number of Players?")
                 .setItems(R.array.playerNumbers, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        ThisGame.setUpNewGame((which+2));
+                        ThisGame.setUpNewGame((which + 2));
                         setActiveFragment(new ScoreFragment());
                     }
                 })
@@ -200,14 +200,17 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_score) {
             fragment = new ScoreFragment();
+            setActiveFragment(fragment);
         } else if (id == R.id.nav_goods) {
             fragment = new GoodsFragment();
+            setActiveFragment(fragment);
         } else if (id == R.id.nav_about) {
             fragment = new AboutFragment();
-        }
-
-        if (fragment != null) {
             setActiveFragment(fragment);
+        } else if (id == R.id.nav_settings) {
+            changeSettingsAlert();
+        } else if (id == R.id.nav_newGame){
+            sendNewGameAlert();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
