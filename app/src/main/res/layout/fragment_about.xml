@@ -43,6 +43,21 @@
                 android:layout_height="wrap_content"
                 android:text="MWaldmeier.com"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I love Imperial Settlers, but it is hard to carry around and can be a mess to play in public places. Now all you need is your game cards, a few tokens (shields, workers, and Egypt), and this app.
+            \n\nThis app is a work in progress. Please help improve it by posting reviews!
+            \n\nThis app was not developed with either the knowledge or blessing of Ignacy Trzewiczek or Portal Games. If they request it to be removed, it will be removed."
+                android:padding="5sp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please Rate My App"
+                android:id="@+id/rateBtn"
+                android:layout_gravity="center"
+                android:textAllCaps="false"/>
 
         </LinearLayout>
     </ScrollView>

@@ -52,10 +52,10 @@
 
                     <ImageView
                         android:id="@+id/stoneImg1"
+                        style="@style/stoneStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/stoneStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/stoneCount1"
@@ -75,10 +75,10 @@
 
                     <ImageView
                         android:id="@+id/woodImg1"
+                        style="@style/woodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/woodStyle" />
+                        android:layout_height="wrap_content" />
 
 
                     <TextView
@@ -99,18 +99,18 @@
 
                     <ImageView
                         android:id="@+id/foodImg1"
+                        style="@style/foodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/foodStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/foodCount1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/foodImg1"
-                    android:layout_centerInParent="true"
-                    android:text="##" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/foodImg1"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
 
                 </RelativeLayout>
 
@@ -122,10 +122,10 @@
 
                     <ImageView
                         android:id="@+id/workerImg1"
+                        style="@style/workerStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/workerStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/workerCount1"
@@ -145,10 +145,10 @@
 
                     <ImageView
                         android:id="@+id/goldImg1"
+                        style="@style/goldStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/goldStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/goldCount1"
@@ -168,10 +168,10 @@
 
                     <ImageView
                         android:id="@+id/razeImg1"
+                        style="@style/razeStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/razeCount1"
@@ -191,10 +191,10 @@
 
                     <ImageView
                         android:id="@+id/defenceImg1"
+                        style="@style/defenceStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/defenceStyle"/>
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/defenceCount1"
@@ -253,10 +253,10 @@
 
                     <ImageView
                         android:id="@+id/stoneImg2"
+                        style="@style/stoneStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/stoneStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/stoneCount2"
@@ -276,10 +276,10 @@
 
                     <ImageView
                         android:id="@+id/woodImg2"
+                        style="@style/woodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/woodStyle" />
+                        android:layout_height="wrap_content" />
 
 
                     <TextView
@@ -300,18 +300,18 @@
 
                     <ImageView
                         android:id="@+id/foodImg2"
+                        style="@style/foodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/foodStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/foodCount2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/foodImg2"
-                    android:layout_centerInParent="true"
-                    android:text="##" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/foodImg2"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
 
                 </RelativeLayout>
 
@@ -323,10 +323,10 @@
 
                     <ImageView
                         android:id="@+id/workerImg2"
+                        style="@style/workerStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/workerStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/workerCount2"
@@ -346,10 +346,10 @@
 
                     <ImageView
                         android:id="@+id/goldImg2"
+                        style="@style/goldStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/goldStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/goldCount2"
@@ -369,10 +369,10 @@
 
                     <ImageView
                         android:id="@+id/razeImg2"
+                        style="@style/razeStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/razeCount2"
@@ -392,10 +392,10 @@
 
                     <ImageView
                         android:id="@+id/defenceImg2"
+                        style="@style/defenceStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/defenceStyle"/>
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/defenceCount2"
@@ -455,10 +455,10 @@
 
                     <ImageView
                         android:id="@+id/stoneImg3"
+                        style="@style/stoneStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/stoneStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/stoneCount3"
@@ -478,10 +478,10 @@
 
                     <ImageView
                         android:id="@+id/woodImg3"
+                        style="@style/woodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/woodStyle" />
+                        android:layout_height="wrap_content" />
 
 
                     <TextView
@@ -502,18 +502,18 @@
 
                     <ImageView
                         android:id="@+id/foodImg3"
+                        style="@style/foodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/foodStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/foodCount3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/foodImg3"
-                    android:layout_centerInParent="true"
-                    android:text="##" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/foodImg3"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
 
                 </RelativeLayout>
 
@@ -526,10 +526,10 @@
 
                     <ImageView
                         android:id="@+id/workerImg3"
+                        style="@style/workerStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/workerStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/workerCount3"
@@ -549,10 +549,10 @@
 
                     <ImageView
                         android:id="@+id/goldImg3"
+                        style="@style/goldStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/goldStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/goldCount3"
@@ -573,10 +573,10 @@
 
                     <ImageView
                         android:id="@+id/razeImg3"
+                        style="@style/razeStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/razeCount3"
@@ -597,10 +597,10 @@
 
                     <ImageView
                         android:id="@+id/defenceImg3"
+                        style="@style/defenceStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/defenceStyle"/>
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/defenceCount3"
@@ -661,10 +661,10 @@
 
                     <ImageView
                         android:id="@+id/stoneImg4"
+                        style="@style/stoneStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/stoneStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/stoneCount4"
@@ -684,10 +684,10 @@
 
                     <ImageView
                         android:id="@+id/woodImg4"
+                        style="@style/woodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/woodStyle" />
+                        android:layout_height="wrap_content" />
 
 
                     <TextView
@@ -708,18 +708,18 @@
 
                     <ImageView
                         android:id="@+id/foodImg4"
+                        style="@style/foodStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/foodStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/foodCount4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/foodImg4"
-                    android:layout_centerInParent="true"
-                    android:text="##" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/foodImg4"
+                        android:layout_centerInParent="true"
+                        android:text="##" />
 
                 </RelativeLayout>
 
@@ -727,15 +727,15 @@
                     android:id="@+id/workerHolder4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/foodHolder4"
-                    android:layout_below="@id/woodHolder4">
+                    android:layout_below="@id/woodHolder4"
+                    android:layout_toEndOf="@id/foodHolder4">
 
                     <ImageView
                         android:id="@+id/workerImg4"
+                        style="@style/workerStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/workerStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/workerCount4"
@@ -755,10 +755,10 @@
 
                     <ImageView
                         android:id="@+id/goldImg4"
+                        style="@style/goldStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/goldStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/goldCount4"
@@ -779,10 +779,10 @@
 
                     <ImageView
                         android:id="@+id/razeImg4"
+                        style="@style/razeStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/razeStyle" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/razeCount4"
@@ -803,10 +803,10 @@
 
                     <ImageView
                         android:id="@+id/defenceImg4"
+                        style="@style/defenceStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        style="@style/defenceStyle"/>
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/defenceCount4"
@@ -830,89 +830,91 @@
             android:layout_below="@id/playerGoodsBox1"
             android:layout_toEndOf="@id/playerGoodsBox3"
             android:layout_toStartOf="@id/playerGoodsBox4"
-            android:padding="5dp"
-            android:background="@drawable/player_goods_holder_shape">
+            android:background="@drawable/player_goods_holder_shape"
+            android:padding="5dp">
 
             <TextView
+                android:id="@+id/poolTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Goods Pool"
-                android:id="@+id/textView2"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:text="Goods Pool"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
 
             <ImageButton
+                android:id="@+id/backBtn"
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_send"
-                android:id="@+id/backBtn"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true"
-                android:rotation="180"/>
+                android:rotation="180"
+                android:src="@drawable/ic_menu_send" />
 
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/stoneImg"
+                    style="@style/stoneStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    style="@style/stoneStyle"/>
+                    android:layout_height="wrap_content" />
 
                 <ImageView
                     android:id="@+id/woodImg"
+                    style="@style/woodStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/stoneImg"
-                    style="@style/woodStyle" />
+                    android:layout_toEndOf="@id/stoneImg" />
 
                 <ImageView
                     android:id="@+id/foodImg"
+                    style="@style/foodStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/stoneImg"
-                    android:layout_below="@+id/stoneImg"
-                    style="@style/foodStyle" />
+                    android:layout_below="@+id/stoneImg" />
 
                 <ImageView
                     android:id="@+id/workerImg"
+                    style="@style/workerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/woodImg"
-                    android:layout_toEndOf="@+id/foodImg"
-                    style="@style/workerStyle" />
+                    android:layout_toEndOf="@+id/foodImg" />
 
                 <ImageView
                     android:id="@+id/goldImg"
+                    style="@style/goldStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/foodImg"
-                    android:layout_below="@+id/foodImg"
-                    style="@style/goldStyle" />
-
-                <ImageView
-                    android:id="@+id/defenceImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/workerImg"
-                    android:layout_toEndOf="@+id/goldImg"
-                    style="@style/defenceStyle" />
+                    android:layout_below="@+id/foodImg" />
 
                 <ImageView
                     android:id="@+id/razeImg"
+                    style="@style/razeStyle"
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/workerImg"
+
+                    android:layout_toEndOf="@+id/goldImg" />
+
+                <ImageView
+                    android:id="@+id/defenceImg"
+                    style="@style/defenceStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/defenceImg"
-                    android:layout_centerHorizontal="true"
-                    style="@style/razeStyle" />
+                    android:layout_below="@id/razeImg"
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
 
         </RelativeLayout>

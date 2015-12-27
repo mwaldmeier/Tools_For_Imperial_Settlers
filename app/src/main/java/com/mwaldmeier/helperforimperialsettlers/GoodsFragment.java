@@ -1,4 +1,4 @@
-package com.mwaldmeier.toolsforimperialsettlers;
+package com.mwaldmeier.helperforimperialsettlers;
 
 import android.content.ClipData;
 import android.graphics.drawable.Drawable;
@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class GoodsFragment extends android.app.Fragment {
     List<List> PlayerImgViewLists = new ArrayList<>();
     SoundPool sp;
     int soundID;
+    MainActivity mainActivity;
 
     public GoodsFragment() {
         // Empty constructor required for fragment subclasses
@@ -34,16 +36,16 @@ public class GoodsFragment extends android.app.Fragment {
         View rootView = inflater.inflate(R.layout.fragment_goods, container, false);
 
         ThisGame = ((ImpSettlers) getActivity().getApplication());
+        mainActivity = (MainActivity) getActivity();
 
         //set up drop sound
-        sp = ((MainActivity) getActivity()).getSoundPool();
+        sp = mainActivity.getSoundPool();
         soundID = sp.load(getActivity().getApplicationContext(), R.raw.blop, 1);
 
         ((ImageButton) rootView.findViewById(R.id.backBtn)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity activity = (MainActivity) getActivity();
-                activity.goToPage(1);
+                mainActivity.goToPage(1);
             }
         });
 
@@ -57,7 +59,16 @@ public class GoodsFragment extends android.app.Fragment {
         rootView.findViewById(R.id.workerImg).setOnTouchListener(new MyTouchListener());
         rootView.findViewById(R.id.goldImg).setOnTouchListener(new MyTouchListener());
         rootView.findViewById(R.id.razeImg).setOnTouchListener(new MyTouchListener());
-        rootView.findViewById(R.id.defenceImg).setOnTouchListener(new MyTouchListener());
+        if (mainActivity.getShowShield().equals("1")) {
+            rootView.findViewById(R.id.defenceImg).setOnTouchListener(new MyTouchListener());
+        } else {
+            rootView.findViewById(R.id.defenceImg).setVisibility(View.GONE);
+            rootView.findViewById(R.id.defenceCount1).setVisibility(View.GONE);
+            rootView.findViewById(R.id.defenceCount2).setVisibility(View.GONE);
+            rootView.findViewById(R.id.defenceCount3).setVisibility(View.GONE);
+            rootView.findViewById(R.id.defenceCount4).setVisibility(View.GONE);
+        }
+
         rootView.findViewById(R.id.goodsPoolBox).setOnDragListener(new MyDragListenerForPlayerGoods());
 
         //set up player goods
@@ -82,7 +93,23 @@ public class GoodsFragment extends android.app.Fragment {
         setListForImgs(rootView);
         setGoodCountsForAllPlayers();
 
+        if (mainActivity.isDuelPane()) {
+            if (ThisGame.getNumPlayers() > 2) {
+                if (mainActivity.getHiByDensity() < 3.5) {
+                    Toast.makeText(getActivity(), "This view is not optimized for more than 2 players.\nRotate your view or change to 2 player.",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+            rootView.findViewById(R.id.backBtn).setVisibility(View.GONE);
+            rootView.findViewById(R.id.poolTitle).setVisibility(View.GONE);
+            setUpGoodsForDuelPane(rootView);
+        }
+
         return rootView;
+    }
+
+    private void setUpGoodsForDuelPane(View rootView) {
+        //TODO set up vertical goods
     }
 
     private void setListForImgs(View rootView) {
@@ -93,7 +120,12 @@ public class GoodsFragment extends android.app.Fragment {
         player1Imgs.add(rootView.findViewById(R.id.workerImg1));
         player1Imgs.add(rootView.findViewById(R.id.goldImg1));
         player1Imgs.add(rootView.findViewById(R.id.razeImg1));
-        player1Imgs.add(rootView.findViewById(R.id.defenceImg1));
+        if (mainActivity.getShowShield().equals("1")) {
+            player1Imgs.add(rootView.findViewById(R.id.defenceImg1));
+        } else {
+            rootView.findViewById(R.id.defenceImg1).setVisibility(View.GONE);
+        }
+
 
         List<View> player2Imgs = new ArrayList<>();
         player2Imgs.add(rootView.findViewById(R.id.foodImg2));
@@ -102,7 +134,11 @@ public class GoodsFragment extends android.app.Fragment {
         player2Imgs.add(rootView.findViewById(R.id.workerImg2));
         player2Imgs.add(rootView.findViewById(R.id.goldImg2));
         player2Imgs.add(rootView.findViewById(R.id.razeImg2));
-        player2Imgs.add(rootView.findViewById(R.id.defenceImg2));
+        if (mainActivity.getShowShield().equals("1")) {
+            player2Imgs.add(rootView.findViewById(R.id.defenceImg2));
+        } else {
+            rootView.findViewById(R.id.defenceImg2).setVisibility(View.GONE);
+        }
 
         PlayerImgViewLists.add(player1Imgs);
         PlayerImgViewLists.add(player2Imgs);
@@ -115,7 +151,11 @@ public class GoodsFragment extends android.app.Fragment {
             player3Imgs.add(rootView.findViewById(R.id.workerImg3));
             player3Imgs.add(rootView.findViewById(R.id.goldImg3));
             player3Imgs.add(rootView.findViewById(R.id.razeImg3));
-            player3Imgs.add(rootView.findViewById(R.id.defenceImg3));
+            if (mainActivity.getShowShield().equals("1")) {
+                player3Imgs.add(rootView.findViewById(R.id.defenceImg3));
+            } else {
+                rootView.findViewById(R.id.defenceImg3).setVisibility(View.GONE);
+            }
             PlayerImgViewLists.add(player3Imgs);
 
             if (ThisGame.getNumPlayers() == 4) {
@@ -126,7 +166,11 @@ public class GoodsFragment extends android.app.Fragment {
                 player4Imgs.add(rootView.findViewById(R.id.workerImg4));
                 player4Imgs.add(rootView.findViewById(R.id.goldImg4));
                 player4Imgs.add(rootView.findViewById(R.id.razeImg4));
-                player4Imgs.add(rootView.findViewById(R.id.defenceImg4));
+                if (mainActivity.getShowShield().equals("1")) {
+                    player4Imgs.add(rootView.findViewById(R.id.defenceImg4));
+                } else {
+                    rootView.findViewById(R.id.defenceImg4).setVisibility(View.GONE);
+                }
                 PlayerImgViewLists.add(player4Imgs);
             }
         }

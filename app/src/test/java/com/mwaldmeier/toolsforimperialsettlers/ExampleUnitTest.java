@@ -1,4 +1,4 @@
-package com.mwaldmeier.toolsforimperialsettlers;
+package com.mwaldmeier.helperforimperialsettlers;
 
 import org.junit.Test;
 

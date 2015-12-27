@@ -1,4 +1,4 @@
-package com.mwaldmeier.toolsforimperialsettlers;
+package com.mwaldmeier.helperforimperialsettlers;
 
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ public class ScoreFragment extends android.app.Fragment {
     ImpSettlers ThisGame;
     SoundPool sp;
     int soundID;
+    MainActivity mainActivity;
 
     public ScoreFragment() {
         // Empty constructor required for fragment subclasses
@@ -32,16 +33,16 @@ public class ScoreFragment extends android.app.Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_score, container, false);
         ThisGame = ((ImpSettlers) getActivity().getApplication());
+        mainActivity = (MainActivity) getActivity();
 
         //set up drop sound
-        sp = ((MainActivity) getActivity()).getSoundPool();
+        sp = mainActivity.getSoundPool();
         soundID = sp.load(getActivity().getApplicationContext(), R.raw.blop, 1);
 
         ((ImageButton) rootView.findViewById(R.id.backBtn)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity activity = (MainActivity) getActivity();
-                activity.goToPage(2);
+                mainActivity.goToPage(2);
             }
         });
 
@@ -51,6 +52,10 @@ public class ScoreFragment extends android.app.Fragment {
 
         setUpPlayerScoreLbls(rootView);
         setUpScoreBtns(rootView);
+
+        if (mainActivity.isDuelPane()) {
+            rootView.findViewById(R.id.backBtn).setVisibility(View.GONE);
+        }
 
         return rootView;
     }

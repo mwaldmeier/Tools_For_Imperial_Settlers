@@ -8,5 +8,6 @@
 <array name="settings">
     <item>"Sound On"</item>
     <item>"Keep Screen On"</item>
+    <item>"Show Shields"</item>
 </array>
 </resources>

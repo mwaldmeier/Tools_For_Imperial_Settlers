@@ -1,22 +1,29 @@
-package com.mwaldmeier.toolsforimperialsettlers;
+package com.mwaldmeier.helperforimperialsettlers;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity
@@ -27,8 +34,14 @@ public class MainActivity extends AppCompatActivity
     //settings variables
     final String SOUND_ON = "SOUND_ON";
     final String SCREEN_ALWAYS_ON = "SCREEN_ALWAYS_ON";
+    final String TIMES_OPENED = "TIMES_OPENED";
+    final String SHOW_SHIELD = "SHOW_SHIELD";
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
+    double widthByDensity;
+    double hiByDensity;
+    boolean duelPane;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +49,7 @@ public class MainActivity extends AppCompatActivity
 
         ThisGame = ((ImpSettlers) this.getApplication());
 
-        ThisGame.setUpNewGame(4);
+        ThisGame.setUpNewGame(2);
 
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
 
@@ -54,11 +67,60 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.getMenu().getItem(0).setChecked(true);
 
-        setActiveFragment(new ScoreFragment());
+        navigationView.getMenu().findItem(R.id.nav_game).setVisible(false);
+
+        getScreenSize();
+        screenSetup();
+
+        navigationView.getMenu().getItem(0).setChecked(true);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        getScreenSize();
+        screenSetup();
+    }
+
+    private void getScreenSize() {
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width=dm.widthPixels;
+        int height=dm.heightPixels;
+        int dens=dm.densityDpi;
+        widthByDensity = (double)width/(double)dens;
+        hiByDensity = (double)height/(double)dens;
+    }
+
+    private void screenSetup() {
+        //TODO: set back to 3.7 when fixed
+        if (widthByDensity < 8) {
+            duelPane = false;
+            setActiveFragment(new ScoreFragment());
+            ActionBar actionBar = (ActionBar) this.getSupportActionBar();
+            if (actionBar != null) {
+                actionBar.show();
+            }
+            navigationView.getMenu().findItem(R.id.nav_goods).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_score).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_game).setVisible(false);
+        } else {
+            duelPane = true;
+            navigationView.getMenu().findItem(R.id.nav_goods).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_score).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_game).setVisible(true);
+            setActiveFragment(new DuelPaneGameFragment());
+        }
+    }
+    public boolean isDuelPane() {
+        return duelPane;
+    }
+
+    public double getHiByDensity() {
+        return hiByDensity;
     }
 
     private void setUpSettings() {
@@ -68,10 +130,42 @@ public class MainActivity extends AppCompatActivity
         if (getScreenAlwaysOn() == null) {
             setSetting(SCREEN_ALWAYS_ON, "1");
         }
+
+        if (getShowShield() == null) {
+            setSetting(SHOW_SHIELD, "0");
+        }
+        setSetting(TIMES_OPENED, (getTimesUsed() + 1));
+        if (getTimesUsed() == 5) {
+            createRateAppAlert();
+        }
+    }
+
+    private int getTimesUsed() {
+        return preferences.getInt(TIMES_OPENED, 0);
+    }
+
+    private void createRateAppAlert() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert
+                .setTitle("Please rate my app.")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        goToRatePage();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+        alert.show();
     }
 
     public String getScreenAlwaysOn() {
         return preferences.getString(SCREEN_ALWAYS_ON, null);
+    }
+    public String getShowShield() {
+        return preferences.getString(SHOW_SHIELD, null);
     }
     public String getSoundOn() {
         return preferences.getString(SOUND_ON, null);
@@ -83,6 +177,10 @@ public class MainActivity extends AppCompatActivity
         if (setting.equals(SCREEN_ALWAYS_ON)) {
             setScreenSetting(value);
         }
+    }
+    private void setSetting(String setting, int value) {
+        editor.putInt(setting, value);
+        editor.apply();
     }
 
     public SoundPool getSoundPool() {
@@ -145,7 +243,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void changeSettingsAlert() {
-        boolean selected[] = new boolean[2];
+        boolean selected[] = new boolean[3];
         if (getSoundOn().equals("1")) {
             selected[0] = true;
         } else {
@@ -155,6 +253,11 @@ public class MainActivity extends AppCompatActivity
             selected[1] = true;
         } else {
             selected[1] = false;
+        }
+        if (getShowShield().equals("1")) {
+            selected[2] = true;
+        } else {
+            selected[2] = false;
         }
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert
@@ -172,6 +275,9 @@ public class MainActivity extends AppCompatActivity
                                         break;
                                     case 1:
                                         checkedSetting = SCREEN_ALWAYS_ON;
+                                        break;
+                                    case 2:
+                                        checkedSetting = SHOW_SHIELD;
                                         break;
                                 }
 
@@ -242,10 +348,34 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setScreenSetting(String screenSetting) {
+        View root = findViewById(android.R.id.content);
         if (screenSetting.equals("1")) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            if (root != null) {
+                root.setKeepScreenOn(true);
+            }
         } else {
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            if (root != null) {
+                root.setKeepScreenOn(false);
+            }
         }
     }
+
+    public void goToRatePage() {
+        Uri uri = Uri.parse("market://details?id=" + this.getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        // To count with Play market backstack, After pressing back button,
+        // to taken back to our application, we need to add following flags to intent.
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            startActivity(goToMarket);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
+        }
+    }
+
 }
